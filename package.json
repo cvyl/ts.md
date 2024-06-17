@@ -1,0 +1,53 @@
+{
+	"name": "typescript.md",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"lint:fix": "next lint --fix",
+		"prettier": "prettier --check --ignore-path .gitignore ./",
+		"prettier:fix": "prettier --write --ignore-path .gitignore ./",
+		"vercel:preview": "vercel",
+		"vercel:deploy": "vercel --prod",
+		"prepare": "simple-git-hooks"
+	},
+	"simple-git-hooks": {
+		"pre-commit": "npx lint-staged"
+	},
+	"lint-staged": {
+		"**/*.{js,jsx,ts,tsx}": [
+			"eslint --fix",
+			"prettier --write"
+		]
+	},
+	"dependencies": {
+		"@radix-ui/react-slot": "^1.0.2",
+		"class-variance-authority": "^0.7.0",
+		"clsx": "^2.1.1",
+		"lucide-react": "^0.395.0",
+		"next": "14.2.4",
+		"react": "^18",
+		"react-dom": "^18",
+		"tailwind-merge": "^2.3.0",
+		"tailwindcss-animate": "^1.0.7"
+	},
+	"devDependencies": {
+		"@types/node": "^20",
+		"@types/react": "^18",
+		"@types/react-dom": "^18",
+		"@typescript-eslint/eslint-plugin": "^7.13.1",
+		"eslint": "^8",
+		"eslint-config-next": "14.2.4",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-unused-imports": "^4.0.0",
+		"lint-staged": "^15.2.7",
+		"postcss": "^8",
+		"prettier-plugin-tailwindcss": "^0.6.5",
+		"simple-git-hooks": "^2.11.1",
+		"tailwindcss": "^3.4.1",
+		"typescript": "^5"
+	}
+}
