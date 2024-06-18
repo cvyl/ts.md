@@ -194,3 +194,83 @@ h6 {
 .footerLink {
 	@apply text-xs underline-offset-4 hover:underline;
 }
+
+.submissionFormBody {
+	@apply flex min-h-screen flex-col;
+}
+
+.submissionFormHeader {
+	@apply fixed left-0 top-0 z-10 flex h-14 w-full items-center bg-white/80 px-4 backdrop-blur-md dark:bg-gray-950/80 md:px-6;
+}
+
+.typeIconContainer {
+	@apply flex items-center justify-center;
+}
+
+.navLinks {
+	@apply ml-auto flex gap-4 sm:gap-6;
+}
+
+.navLink {
+	@apply text-sm font-medium underline-offset-4 hover:underline;
+}
+
+.mainContent {
+	@apply relative flex-1 overflow-hidden;
+}
+
+.formSection {
+	@apply w-full py-12 md:py-24 lg:py-32 xl:py-48;
+}
+
+.formContainer {
+	@apply container px-4 md:px-6;
+}
+
+.formGrid {
+	@apply grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px];
+}
+
+.formIntro {
+	@apply flex flex-col justify-center space-y-4;
+}
+
+.formIntroText {
+	@apply space-y-2;
+}
+
+.formTitle {
+	@apply text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none;
+}
+
+.formDescription {
+	@apply max-w-[600px] text-gray-500 dark:text-gray-400 md:text-xl;
+}
+
+.formBody {
+	@apply space-y-4;
+}
+
+.formField {
+	@apply space-y-2;
+}
+
+.formFieldGrid {
+	@apply grid grid-cols-2 gap-4;
+}
+
+.subdomainInputContainer {
+	@apply flex items-center;
+}
+
+.subdomainSuffix {
+	@apply ml-2 text-gray-500;
+}
+
+.submitButton {
+	@apply w-full;
+}
+
+.heroImage {
+	@apply mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last lg:aspect-square;
+}
