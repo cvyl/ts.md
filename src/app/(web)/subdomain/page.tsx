@@ -99,8 +99,7 @@ ${formData.subdomain}.ts.md
 												id='email'
 												value={formData.email}
 												onChange={handleInputChange}
-												type='email'
-												placeholder='Your email'
+												placeholder='name@example.com'
 												required={false}
 											/>
 										</div>
