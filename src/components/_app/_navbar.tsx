@@ -5,7 +5,7 @@ export default function NaviBar() {
 	return (
 		<header className='headerLandingPage'>
 			<Link
-				href='#'
+				href='/'
 				className='flex items-center justify-center'
 				prefetch={false}
 			>
@@ -19,7 +19,7 @@ export default function NaviBar() {
 				<Link href='#' className='navLink' prefetch={false}>
 					Tools
 				</Link>
-				<Link href='#' className='navLink' prefetch={false}>
+				<Link href='subdomain' className='navLink' prefetch={false}>
 					Subdomain
 				</Link>
 				<Link href='#' className='navLink' prefetch={false}>

@@ -3,35 +3,10 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Skeleton } from '@/components/ui/skeleton'
-import { TypeIcon } from '@/components/icons'
 
-export default function Component() {
+export default function LandingPage() {
 	return (
 		<div className='bodyLandingPage'>
-			<header className='headerLandingPage'>
-				<Link
-					href='#'
-					className='flex items-center justify-center'
-					prefetch={false}
-				>
-					<TypeIcon className='h-8 w-8' />
-					<span className='sr-only'>ts.md</span>
-				</Link>
-				<nav className='ml-auto flex gap-4 sm:gap-6'>
-					<Link href='#' className='navLink' prefetch={false}>
-						Libraries
-					</Link>
-					<Link href='#' className='navLink' prefetch={false}>
-						Tools
-					</Link>
-					<Link href='#' className='navLink' prefetch={false}>
-						Guides
-					</Link>
-					<Link href='#' className='navLink' prefetch={false}>
-						About
-					</Link>
-				</nav>
-			</header>
 			<main className='mainLandingPage'>
 				<div className='gradientOverlay pointer-events-none' />
 				<section className='sectionLandingPage'>
@@ -73,17 +48,6 @@ export default function Component() {
 					</div>
 				</section>
 			</main>
-			<footer className='footerLandingPage'>
-				<p className='footerText'>&copy; 2024 ts.md. All rights reserved.</p>
-				<nav className='footerNav'>
-					<Link href='#' className='footerLink' prefetch={false}>
-						Terms of Service
-					</Link>
-					<Link href='#' className='footerLink' prefetch={false}>
-						Privacy
-					</Link>
-				</nav>
-			</footer>
 		</div>
 	)
 }
