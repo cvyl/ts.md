@@ -1,0 +1,36 @@
+name: Auto Close Issue if Checkbox Not Ticked
+
+on:
+  issues:
+    types:
+      - opened
+
+jobs:
+  check-checkbox:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check if the checkbox is ticked
+        id: check_checkbox
+        run: |
+          if ! grep -q '\- \[x\] I understand' "${{ github.event.issue.body }}"; then
+            echo "Checkbox not ticked"
+            echo "checkbox_not_ticked=true" >> $GITHUB_ENV
+          else
+            echo "Checkbox ticked"
+            echo "checkbox_not_ticked=false" >> $GITHUB_ENV
+
+      - name: Close issue if checkbox not ticked
+        if: env.checkbox_not_ticked == 'true'
+        run: |
+          curl -X POST \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.issue.number }}/comments \
+            -d '{"body": "You did not agree to the terms and conditions. Therefore, this issue will be closed."}'
+
+          curl -X PATCH \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.issue.number }} \
+            -d '{"state": "closed"}'
