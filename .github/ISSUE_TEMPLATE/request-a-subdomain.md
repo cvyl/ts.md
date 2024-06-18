@@ -1,10 +1,9 @@
 ---
 name: Request a Subdomain
 about: Fill out the form below to request a subdomain under "ts.md".
-title: "[Subdomain Request] NAME.ts.md"
+title: '[Subdomain Request] NAME.ts.md'
 labels: ''
 assignees: cvyl
-
 ---
 
 # Subdomain Request Form
@@ -31,6 +30,6 @@ assignees: cvyl
 
 ---
 
-###  Abuse of this form and subdomain will result in termination of any running services connected to your subdomain
+### Abuse of this form and subdomain will result in termination of any running services connected to your subdomain
 
 - [x] I understand

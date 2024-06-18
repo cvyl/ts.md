@@ -267,10 +267,6 @@ h6 {
 	@apply ml-2 text-gray-500;
 }
 
-.submitButton {
-	@apply w-full;
-}
-
-.heroImage {
-	@apply mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last lg:aspect-square;
+.textAreaInput {
+  @apply bg-fuchsia-900/15 rounded-lg p-4 w-full;
 }
