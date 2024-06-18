@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { Comfortaa } from 'next/font/google'
 import './globals.css'
 import { siteConfig } from '@/config/site'
+import NaviBar from '@/components/_app/_navbar'
+import FooterBar from '@/components/_app/_footer'
 
 const comfortaa = Comfortaa({
 	subsets: ['latin'],
@@ -17,8 +19,12 @@ export default function RootLayout({
 	children: React.ReactNode
 }>) {
 	return (
-		<html lang='en'>
-			<body className={comfortaa.variable}>{children}</body>
+		<html lang='en' suppressHydrationWarning>
+			<body className={comfortaa.variable}>
+				<NaviBar />
+				{children}
+				<FooterBar />
+			</body>
 		</html>
 	)
 }
