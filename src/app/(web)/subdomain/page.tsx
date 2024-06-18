@@ -44,7 +44,7 @@ ${formData.subdomain}.ts.md
             
 ### Abuse of this form and subdomain will result in termination of any running services connected to your subdomain
             
-- [x] I understand`)}`
+- [ ] I understand`)}`
 		// prettier-ignore-end
 		window.open(issueUrl, '_blank')
 	}
