@@ -2,7 +2,7 @@ name: Auto Close Issue if Checkbox Not Ticked
 
 on:
   issues:
-    types:
+    types: 
       - opened
 
 jobs:
@@ -13,22 +13,29 @@ jobs:
       - name: Check if the checkbox is ticked
         id: check_checkbox
         run: |
-          if ! grep -q '\- \[x\] I understand' "${{ github.event.issue.body }}"; then
-            echo "Checkbox not ticked"
-            echo "checkbox_not_ticked=true" >> $GITHUB_ENV
+          # Extract the issue body
+          ISSUE_BODY="${{ github.event.issue.body }}"
+          
+          # Check if the checkbox is ticked
+          if echo "$ISSUE_BODY" | grep -q '\- \[x\] I understand'; then
+            echo "Checkbox is ticked"
+            echo "checkbox_ticked=true" >> $GITHUB_ENV
           else
-            echo "Checkbox ticked"
-            echo "checkbox_not_ticked=false" >> $GITHUB_ENV
+            echo "Checkbox is not ticked"
+            echo "checkbox_not_ticked=true" >> $GITHUB_ENV
+          fi
 
       - name: Close issue if checkbox not ticked
         if: env.checkbox_not_ticked == 'true'
         run: |
+          # Post a comment to the issue
           curl -X POST \
             -H "Accept: application/vnd.github.v3+json" \
             -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.issue.number }}/comments \
             -d '{"body": "You did not agree to the terms and conditions. Therefore, this issue will be closed."}'
 
+          # Close the issue
           curl -X PATCH \
             -H "Accept: application/vnd.github.v3+json" \
             -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
