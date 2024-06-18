@@ -13,9 +13,7 @@ export const siteConfig = {
 	title: SITE_TITLE,
 	description: SITE_DESCRIPTION,
 	openGraph: {
-		title: SITE_TITLE,
 		description: SITE_DESCRIPTION,
-		siteName: SITE_TITLE,
 		type: 'website',
 		url: BASE_URL,
 		images: [
