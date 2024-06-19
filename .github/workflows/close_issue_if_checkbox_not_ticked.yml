@@ -17,7 +17,7 @@ jobs:
           ISSUE_BODY="${{ github.event.issue.body }}"
           
           # Check if the checkbox is ticked
-          if echo "$ISSUE_BODY" | grep -q '\- \[x\] I understand'; then
+          if echo "$ISSUE_BODY" | grep -qi '\- \[x\] I understand'; then
             echo "Checkbox is ticked"
             echo "checkbox_ticked=true" >> $GITHUB_ENV
           else
