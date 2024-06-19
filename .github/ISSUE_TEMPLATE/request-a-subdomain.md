@@ -20,7 +20,9 @@ assignees: cvyl
 
 .
 
-## Description of your project, please link your project&#39;s website or repository if applicable. (required)
+## Description of your project (required)
+
+(Why do you want a subdomain? Please link your project's website or repository if applicable.)
 
 .
 
