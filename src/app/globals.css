@@ -176,7 +176,7 @@ h6 {
 }
 
 .skeletonLandingPage {
-	@apply mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last lg:aspect-square;
+	@apply mx-auto overflow-hidden;
 }
 
 .footerLandingPage {

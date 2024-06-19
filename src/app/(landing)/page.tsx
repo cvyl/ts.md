@@ -2,7 +2,8 @@
 
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { Skeleton } from '@/components/ui/skeleton'
+import Image from 'next/image'
+import { Label } from '@radix-ui/react-label'
 
 export default function LandingPage() {
 	return (
@@ -43,7 +44,19 @@ export default function LandingPage() {
 									</Link>
 								</div>
 							</div>
-							<Skeleton className='skeletonLandingPage' />
+							<div className='skeletonLandingPage'>
+								<Image
+									src='/hovercode.svg'
+									alt='Placeholder'
+									width={450}
+									height={450}
+									draggable={false}
+								/>
+								<Label className='space-y-2 text-center text-sm'>
+									(Placeholder Image & Text, will be replaced with actual
+									content)
+								</Label>
+							</div>
 						</div>
 					</div>
 				</section>
