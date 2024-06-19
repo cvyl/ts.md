@@ -158,6 +158,7 @@ ${formData.subdomain}.ts.md
 										variant='default'
 										type='submit'
 										className='buttonDefault'
+										disabled={!understandChecked}
 									>
 										Submit Request
 									</Button>
