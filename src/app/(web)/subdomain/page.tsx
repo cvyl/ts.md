@@ -5,6 +5,7 @@ import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
+import { Checkbox } from '@/components/ui/checkbox' // Import the Checkbox component
 
 export default function Component() {
 	const [formData, setFormData] = useState({
@@ -14,9 +15,12 @@ export default function Component() {
 		description: '',
 		subdomain: ''
 	})
+	const [understandChecked, setUnderstandChecked] = useState(false) // State for checkbox
+
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
-		// prettier-ignore-start
+		const checkedMark = understandChecked ? 'x' : ' '
+		//prettier-ignore-start
 		const issueUrl = `https://github.com/cvyl/ts.md/issues/new?assignees=cvyl&labels=&projects=&template=request-a-subdomain.md&title=%5BSubdomain+Request%5D+${formData.subdomain}.ts.md&body=${encodeURIComponent(`
 # Subdomain Request Form
 
@@ -44,15 +48,17 @@ ${formData.subdomain}.ts.md
             
 ### Abuse of this form and subdomain will result in termination of any running services connected to your subdomain
             
-- [ ] I understand`)}`
-		// prettier-ignore-end
+- [${checkedMark}] I understand`)}`
+		//prettier-ignore-end
 		window.open(issueUrl, '_blank')
 	}
+
 	const handleInputChange = (
 		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
 	) => {
 		setFormData({ ...formData, [e.target.id]: e.target.value })
 	}
+
 	return (
 		<div className='submissionFormBody'>
 			<main className='mainContent'>
@@ -128,6 +134,25 @@ ${formData.subdomain}.ts.md
 											placeholder='Why do you want a subdomain?'
 											required
 										/>
+									</div>
+									<div className='formField checkboxContainer'>
+										<Checkbox
+											id='understand'
+											className='checkboxInput'
+											checked={understandChecked}
+											onCheckedChange={(checked) => {
+												if (checked === 'indeterminate') {
+													setUnderstandChecked(false)
+												} else {
+													setUnderstandChecked(checked)
+												}
+											}}
+										/>
+										<Label htmlFor='understand' className='checkboxLabel'>
+											I understand that abuse of this form and subdomain will
+											result in termination of any running services connected to
+											my subdomain
+										</Label>
 									</div>
 									<Button
 										variant='default'
