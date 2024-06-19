@@ -36,7 +36,7 @@ ${formData.discord}
             
 ${formData.email}
             
-## Description of your project (required)
+## Description of your project, please link your project&#39;s website or repository if applicable. (required)
             
 ${formData.description}
             
@@ -131,7 +131,7 @@ ${formData.subdomain}.ts.md
 											id='description'
 											value={formData.description}
 											onChange={handleInputChange}
-											placeholder='Why do you want a subdomain?'
+											placeholder='Why do you want a subdomain? Please link your project&#39;s website or repository if applicable.'
 											required
 										/>
 									</div>
