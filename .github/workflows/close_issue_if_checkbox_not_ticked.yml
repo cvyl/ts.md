@@ -2,7 +2,7 @@ name: Auto Close Issue if Checkbox Not Ticked
 
 on:
   issues:
-    types: 
+    types:
       - opened
 
 jobs:
@@ -15,7 +15,7 @@ jobs:
         run: |
           # Extract the issue body
           ISSUE_BODY="${{ github.event.issue.body }}"
-          
+
           # Check if the checkbox is ticked
           if echo "$ISSUE_BODY" | grep -qi '\- \[x\] I understand'; then
             echo "Checkbox is ticked"
